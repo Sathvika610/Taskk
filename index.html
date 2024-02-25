@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Image Gallery</title>
+		<style>
+			h1 {
+				text-align: center;
+			}
+			.gallery {
+				display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 10px; /* Adjust padding for spacing */
+			}
+
+			.image-container {
+				margin: 5px;
+				position: relative;
+			}
+
+			.image-container img {
+				width: 240px; /* Adjust width for desired size */
+				height: 240px;
+				object-fit: cover;
+				border-radius: 10px;
+			}
+
+			.image-container .overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				opacity: 0;
+				transition: opacity 0.2s ease-in-out;
+			}
+
+			.image-container:hover .overlay {
+				opacity: 1;
+			}
+
+			.image-container .caption {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				padding: 10px;
+				text-align: center;
+				color: black;
+				font-weight: bold;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+			.image-container:hover .caption {
+				background-color: rgba(26, 139, 147, 0.7);
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Select a Doctor</h1>
+		<div class="gallery"></div>
+		<script>
+			const imageData = [
+				{ image: "image1.png" },
+				{ image: "image2.jpg" },
+				{ image: "image3.jpg" },
+				{ image: "image4.jpg" },
+				{ image: "image5.jpeg" },
+				{ image: "image5.jpeg" },
+				{ image: "image4.jpg" },
+				{ image: "image3.jpg" },
+				{ image: "image2.jpg" },
+				{ image: "image1.png" },
+				{ image: "image5.jpeg" },
+				{ image: "image4.jpg" },
+				{ image: "image3.jpg" },
+				{ image: "image2.jpg" },
+				{ image: "image1.png" },
+				{ image: "image5.jpeg" },
+				{ image: "image4.jpg" },
+				{ image: "image3.jpg" },
+				{ image: "image2.jpg" },
+				{ image: "image1.png" },
+				{ image: "image5.jpeg" },
+				{ image: "image4.jpg" },
+				{ image: "image3.jpg" },
+				{ image: "image2.jpg" },
+				{ image: "image1.png" },
+
+				// ...
+			];
+
+			const gallery = document.querySelector(".gallery");
+
+			imageData.forEach((imageObject) => {
+				const imageContainer = document.createElement("div");
+				imageContainer.classList.add("image-container");
+
+				const image = document.createElement("img");
+				image.src = imageObject.image;
+				imageContainer.appendChild(image);
+
+				const caption = document.createElement("div");
+				caption.classList.add("caption");
+				caption.textContent = "Image Caption"; // Replace with actual caption
+				imageContainer.appendChild(caption);
+
+				gallery.appendChild(imageContainer);
+			});
+		</script>
+	</body>
+</html>
